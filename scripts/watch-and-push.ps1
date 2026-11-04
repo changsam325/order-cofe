@@ -184,8 +184,18 @@ try {
         $gitPaths = @($pathsToStage.ToArray()) + @($recordRelativePath)
         Invoke-Git -Arguments (@('add', '--') + $gitPaths)
 
-        $message = "chore(auto): $($timestamp.ToString('yyyy-MM-dd HH:mm:ss'))"
-        Invoke-Git -Arguments @('commit', '-m', $message)
+        $formattedTimestamp = $timestamp.ToString('yyyy年MM月dd日 HH:mm:ss zzz')
+        $subject = "自動提交：$formattedTimestamp"
+        $messageLines = @(
+            "提交時間：$formattedTimestamp",
+            '變更摘要：自動提交本次檔案變更，方便依日期時間查詢。',
+            '變更檔案：'
+        )
+        foreach ($path in $pathsToStage) {
+            $messageLines += "- $path"
+        }
+        $message = $messageLines -join [Environment]::NewLine
+        Invoke-Git -Arguments @('commit', '-m', $subject, '-m', $message)
         Invoke-Git -Arguments @('push', '--set-upstream', 'origin', $branch)
         Write-Host "已提交並推送 $($pathsToStage.Count) 個變更；紀錄：$recordRelativePath"
     }
