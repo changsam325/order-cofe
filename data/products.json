@@ -1,90 +1,134 @@
 [
-  {
-    "id": "oat-latte",
-    "name": "晨光燕麥拿鐵",
-    "category": "義式咖啡",
-    "description": "濃縮咖啡・燕麥奶・野花蜂蜜",
-    "price": 150,
-    "badge": "店長推薦",
-    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["hot", "iced", "size", "sugar", "oat"]
-  },
-  {
-    "id": "ethiopia",
-    "name": "衣索比亞・日曬",
-    "category": "手沖精品",
-    "description": "莓果香氣・柑橘尾韻・中淺焙",
-    "price": 180,
-    "badge": "單品手沖",
-    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["hot", "iced", "size"]
-  },
-  {
-    "id": "black-sugar-coldbrew",
-    "name": "黑糖海鹽冷萃",
-    "category": "特調飲品",
-    "description": "低溫萃取・黑糖香氣・綿密奶蓋",
-    "price": 160,
-    "badge": "季節限定",
-    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["iced", "size", "sugar"]
-  },
-  {
-    "id": "flat-white",
-    "name": "經典馥列白",
-    "category": "義式咖啡",
-    "description": "雙份濃縮・絲絨奶泡・平衡醇厚",
-    "price": 140,
-    "badge": "經典款",
-    "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["hot", "iced", "size", "sugar", "oat"]
-  },
-  {
-    "id": "geisha",
-    "name": "巴拿馬・藝伎",
-    "category": "手沖精品",
-    "description": "白花香氣・蜜桃甜感・淺焙",
-    "price": 240,
-    "badge": "限量批次",
-    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["hot", "iced", "size"]
-  },
-  {
-    "id": "citrus-espresso",
-    "name": "橙花氣泡美式",
-    "category": "特調飲品",
-    "description": "柑橘果香・清爽氣泡・雙份濃縮",
-    "price": 155,
-    "badge": "清爽推薦",
-    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": ["iced", "size", "sugar"]
-  },
-  {
-    "id": "canelé",
-    "name": "香草可麗露",
-    "category": "輕食甜點",
-    "description": "外層焦脆・內裡柔軟・每日新鮮出爐",
-    "price": 75,
-    "badge": "每日現烤",
-    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": []
-  },
-  {
-    "id": "lemon-cake",
-    "name": "檸檬奶油磅蛋糕",
-    "category": "輕食甜點",
-    "description": "新鮮檸檬・發酵奶油・微酸清甜",
-    "price": 95,
-    "badge": "人氣甜點",
-    "image": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=800&q=80",
-    "available": true,
-    "options": []
-  }
+{
+"id": "oat-latte",
+"name": "晨光燕麥拿鐵",
+"category": "義式咖啡",
+"description": "選用中深烘焙的經典配方濃縮咖啡，搭配在地優質燕麥奶，呈現自然香醇的穀物甜感。特別加入一絲清涼微甜的天然野花蜂蜜，口感綿密順口，是開啟美好早晨的溫暖首選。",
+"price": 150,
+"badge": "店長推薦",
+"image": "./plan/images/dessert1.jpg",
+"available": true,
+"options": ["hot", "iced", "size", "sugar", "oat"]
+},
+{
+"id": "classic-americano",
+"name": "美式黑咖啡",
+"category": "義式咖啡",
+"description": "採用哥倫比亞與耶加雪菲雙拼豆萃取，風味帶有清晰的黑巧克力苦甜與柑橘類果酸香氣。整體明亮乾淨、餘韻悠長，最能品嚐出精品咖啡豆的純粹風味。",
+"price": 110,
+"badge": "",
+"image": "./plan/images/dessert2.jpg",
+"available": true,
+"options": ["hot", "iced", "size"]
+},
+{
+"id": "salted-caramel-latte",
+"name": "海鹽焦糖拿鐵",
+"category": "義式咖啡",
+"description": "自家熬製的濃香手工焦糖醬，融合濃郁的濃縮咖啡與現打溫熱鮮奶，最後撒上一小撮粉紅岩鹽。微鹹甜的完美平衡感，層次豐富且令人回味無窮。",
+"price": 160,
+"badge": "熱銷人氣",
+"image": "./plan/images/dessert3.jpg",
+"available": true,
+"options": ["hot", "iced", "size", "sugar", "milk"]
+},
+{
+"id": "dirty-coffee",
+"name": "經典 Dirty 拿鐵",
+"category": "義式咖啡",
+"description": "將剛萃取出的熱騰騰濃厚雙份 Espresso 直接注入冰鎮過的特調厚鮮奶中。感受冰與熱、苦與甜在口中交織碰撞的極致層次感，建議直接大口飲用不攪拌。",
+"price": 140,
+"badge": "限時限量",
+"image": "./plan/images/dessert4.jpg",
+"available": true,
+"options": ["iced", "milk"]
+},
+{
+"id": "geisha-pourover",
+"name": "巴拿馬翡翠莊園 藝妓手沖",
+"category": "手沖精品",
+"description": "水洗處理法帶來極致優雅的白花香氣與茉莉花茶感，夾帶著接骨木花、檸檬皮與紅蜜柑的明亮酸甜，質地極為絲滑，完美展現頂級藝妓豆的細緻風味。",
+"price": 280,
+"badge": "莊園嚴選",
+"image": "./plan/images/dessert5.jpg",
+"available": true,
+"options": ["hot", "iced"]
+},
+{
+"id": "yirgacheffe-pourover",
+"name": "衣索比亞 耶加雪菲 日曬",
+"category": "手沖精品",
+"description": "淺烘焙保留豐富水果風味，入口充滿藍莓、水蜜桃與熱帶水果的狂野甜香，隨後帶出明亮多汁的柑橘酸感與紅茶般甘甜的尾韻，非常適合午後細細品嚐。",
+"price": 180,
+"badge": "",
+"image": "./plan/images/dessert6.jpg",
+"available": true,
+"options": ["hot", "iced"]
+},
+{
+"id": "kyoto-matcha-latte",
+"name": "京都宇治抹茶歐蕾",
+"category": "嚴選茶飲",
+"description": "嚴選日本京都宇治百年老店的手打等級抹茶粉，以茶筅現刷保留最純正的茶香與苦甜韻味。搭配濃郁優質鮮奶，口感滑順濃郁，抹茶控絕不能錯過的經典。",
+"price": 160,
+"badge": "店長推薦",
+"image": "./plan/images/dessert7.jpg",
+"available": true,
+"options": ["hot", "iced", "size", "sugar", "oat", "milk"]
+},
+{
+"id": "ceylon-ruby-milktea",
+"name": "紅玉鮮奶茶",
+"category": "嚴選茶飲",
+"description": "選用台灣日月潭台茶18號紅玉紅茶，茶湯帶著獨特的肉桂與薄荷天然香氣。加入濃醇鮮奶手搖出綿密泡泡，茶香濃厚而不澀，甜度適中柔和。",
+"price": 140,
+"badge": "",
+"image": "./plan/images/dessert8.jpg",
+"available": true,
+"options": ["hot", "iced", "size", "sugar", "milk"]
+},
+{
+"id": "sparkling-espresso-lemon",
+"name": "西西里氣泡檸檬咖啡",
+"category": "特調氣泡",
+"description": "新鮮現擠屏東九如綠檸檬汁，加入沁涼透心的氣泡水與精選濃縮咖啡。微酸帶甜的果香搭配氣泡跳躍感，清爽解膩，是炎炎夏日最迷人的消暑選擇。",
+"price": 150,
+"badge": "夏季限定",
+"image": "./plan/images/dessert9.jpg",
+"available": true,
+"options": ["iced", "sugar"]
+},
+{
+"id": "valrhona-cocoa",
+"name": "法芙娜頂級香濃可可",
+"category": "無咖啡因",
+"description": "採用100%法國頂級法芙娜（Valrhona）純可可粉，加入純鮮奶與少許純蔗糖精心燉煮。口感厚實滑順，充滿苦甜巧克力成熟的香氣，溫暖療癒身心。",
+"price": 170,
+"badge": "",
+"image": "./plan/images/dessert10.jpg",
+"available": true,
+"options": ["hot", "iced", "size", "milk"]
+},
+{
+"id": "basque-cheesecake",
+"name": "炙燒焦糖巴斯克乳酪蛋糕",
+"category": "手作甜點",
+"description": "選用北海道十勝奶油乳酪純手作烘焙，高溫烘烤出深褐色焦香外層，內餡如同卡士達般半熟綿密柔軟。上桌前現炙燒薄翠焦糖，濃郁奶香與焦香在口中完美爆發。",
+"price": 140,
+"badge": "每日限量",
+"image": "./plan/images/dessert11.jpg",
+"available": true,
+"options": []
+},
+{
+"id": "classic-tiramisu",
+"name": "義式酒香提拉米蘇",
+"category": "手作甜點",
+"description": "遵循義式傳統做法，以手指餅乾吸飽特調濃縮咖啡與葛瑪蘭威士忌酒香，搭配馬斯卡彭乳酪（Mascarpone）與鮮奶油堆疊，頂層撒滿苦甜可可粉，濕潤滑順且層次豐沛。",
+"price": 160,
+"badge": "店長推薦",
+"image": "./plan/images/dessert12.jpg",
+"available": true,
+"options": []
+}
 ]

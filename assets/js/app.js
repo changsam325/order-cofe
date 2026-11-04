@@ -1,10 +1,13 @@
 const STORAGE_KEYS = {
   cart: "chenbei-cart",
   orders: "chenbei-orders",
-  products: "chenbei-products"
+  products: "chenbei-products",
+  productVersion: "chenbei-products-version"
 };
 
-export const categories = ["全部", "義式咖啡", "手沖精品", "特調飲品", "輕食甜點"];
+const PRODUCT_CATALOG_VERSION = "2026-11-product1";
+
+export const categories = ["全部", "義式咖啡", "手沖精品", "嚴選茶飲", "特調氣泡", "無咖啡因", "手作甜點"];
 export const orderStages = [
   { id: "received", label: "已收單", next: "preparing" },
   { id: "preparing", label: "製作中", next: "ready" },
@@ -35,7 +38,8 @@ function readStorage(key, fallback) {
 
 export async function loadProducts() {
   const savedProducts = localStorage.getItem(STORAGE_KEYS.products);
-  if (savedProducts !== null) {
+  const savedVersion = localStorage.getItem(STORAGE_KEYS.productVersion);
+  if (savedProducts !== null && savedVersion === PRODUCT_CATALOG_VERSION) {
     try {
       const parsed = JSON.parse(savedProducts);
       if (!Array.isArray(parsed)) throw new TypeError("商品資料格式錯誤");
@@ -52,6 +56,18 @@ export async function loadProducts() {
   const products = await response.json();
   if (!Array.isArray(products)) throw new TypeError("data/products.json 必須是商品陣列。");
   state.products = products;
+  try {
+    localStorage.setItem(STORAGE_KEYS.products, JSON.stringify(products));
+    localStorage.setItem(STORAGE_KEYS.productVersion, PRODUCT_CATALOG_VERSION);
+  } catch (error) {
+    console.error("更新瀏覽器菜單快取失敗", error);
+    try {
+      localStorage.removeItem(STORAGE_KEYS.productVersion);
+    } catch (removeError) {
+      console.error("清除菜單版本快取失敗", removeError);
+    }
+    showToast("新菜單已載入，但瀏覽器無法更新快取。");
+  }
 }
 
 function persist(key, value) {
@@ -195,10 +211,11 @@ function addToCart(form) {
     return;
   }
   const data = new FormData(form);
-  const size = data.get("size") || "";
-  const temperature = data.get("temperature") || "";
-  const sugar = data.get("sugar") || "";
-  const extraOat = data.has("extraOat");
+  const options = new Set(product.options || []);
+  const size = options.has("size") ? data.get("size") || "" : "";
+  const temperature = options.has("hot") && options.has("iced") ? data.get("temperature") || "" : "";
+  const sugar = options.has("sugar") ? data.get("sugar") || "" : "";
+  const extraOat = options.has("oat") && data.has("extraOat");
   const quantity = Math.min(20, Math.max(1, Number(data.get("quantity")) || 1));
   const details = [size, temperature, sugar, extraOat ? "燕麥奶" : ""].filter(Boolean).join("・") || "原味";
   const key = [product.id, size, temperature, sugar, extraOat ? "oat" : ""].join("|");

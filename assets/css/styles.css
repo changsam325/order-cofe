@@ -73,9 +73,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .section-heading p { max-width: 360px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.9; }
 .coffee-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .coffee-card { overflow: hidden; border: 1px solid var(--line); background: #fff; }
-.coffee-image { position: relative; height: 235px; overflow: hidden; background: #e4d9cd; }
-.coffee-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
-.coffee-card:hover .coffee-image img { transform: scale(1.035); }
+.coffee-image { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #e4d9cd; }
+.coffee-image img { width: 100%; height: 100%; object-fit: contain; }
 .badge { position: absolute; top: 13px; left: 13px; padding: 5px 10px; background: #211812e8; color: #fff; font-size: 13px; }
 .coffee-info { padding: 17px 19px 16px; }
 .coffee-title-row { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
@@ -190,7 +189,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .nav { gap: 12px; }
   .nav-links { gap: 14px; }
   .nav-links a, .nav-actions a { font-size: 13px; }
-  .coffee-image { height: 195px; }
   .two-column { grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 18px; }
 }
 @media (max-width: 680px) {
@@ -216,7 +214,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .section-heading p { font-size: 14px; }
   .coffee-grid { grid-template-columns: 1fr; gap: 13px; }
   .coffee-card { display: grid; grid-template-columns: 36% 1fr; }
-  .coffee-image { height: 100%; min-height: 170px; }
+  .coffee-image { height: 100%; min-height: 170px; aspect-ratio: auto; }
   .coffee-info { padding: 13px 12px; }
   .coffee-info h3 { font-size: 16px; }
   .coffee-info p { font-size: 13px; line-height: 1.6; }
