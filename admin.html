@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#211812">
+    <meta name="description" content="晨焙 Coffee Atelier 訂單與菜單管理展示頁。">
+    <title>店家管理｜晨焙 Coffee Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/js/admin.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="主要導覽">
+        <a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a>
+        <div class="nav-links"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html" aria-current="page">店家管理</a></div>
+        <div class="nav-actions"><a href="./cart.html" aria-label="購物袋，0 件">購物袋 <span class="cart-count" data-cart-count aria-live="polite">0</span></a><a class="nav-cta" href="./menu.html">開始點餐 ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="開啟導覽選單">選單</button></div>
+      </nav>
+      <div class="mobile-nav wrap"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./cart.html">購物袋（<span data-cart-count>0</span>）</a><a href="./order.html">訂單查詢</a><a href="./admin.html" aria-current="page">店家管理</a></div>
+    </header>
+    <main class="page-main">
+      <section class="admin-shell"><div class="wrap">
+        <div class="page-heading"><div><div class="eyebrow">Atelier dashboard</div><h1>店家管理</h1></div><div class="admin-tabs"><a href="./admin.html" data-admin-tab="orders" aria-current="page">訂單看板</a><a href="./admin.html?view=menu" data-admin-tab="menu">菜單管理</a></div></div>
+        <div class="notice admin-note">前端展示模式：此管理畫面沒有登入與權限控管，不可直接用於正式營運。</div>
+      </div></section>
+      <section class="page-body wrap">
+        <section id="admin-orders"><div class="page-heading"><div><h2>訂單看板</h2><p>依製作進度更新訂單狀態，顧客追蹤頁會同步顯示。</p></div></div><div class="board" id="order-board"></div></section>
+        <section id="admin-menu" hidden><div class="panel">
+          <div class="section-heading"><div><h2>菜單商品</h2><p>上架、編輯商品資訊並設定供應狀態。</p></div><button class="button" type="button" data-add-product>新增商品 +</button></div>
+          <div class="admin-menu-list" id="admin-product-list" data-product-list></div>
+        </div></section>
+      </section>
+    </main>
+    <section class="page-body wrap" id="page-error" hidden><div class="empty-state" role="alert"><h2>目前無法載入商品資料</h2><p>請確認網站是透過本機伺服器開啟，並重新載入頁面。</p><button class="button" type="button" data-reload-page>重新載入</button></div></section>
+    <footer class="site-footer"><div class="footer-inner wrap"><a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a><div>© 晨焙 <span lang="en">Coffee Atelier</span>　｜　前端展示版</div><div class="footer-links"><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div></div></footer>
+    <dialog class="modal" aria-labelledby="modal-title"><form class="modal-content" id="product-form" data-product="">
+      <div class="modal-header"><div><div class="eyebrow">Menu management</div><h2 id="modal-title">新增商品</h2></div><button class="modal-close" type="button" data-close-modal aria-label="關閉">×</button></div>
+      <div class="form-grid">
+        <div class="field"><label for="product-name">商品名稱</label><input id="product-name" name="name" required maxlength="60"></div>
+        <div class="field"><label for="product-price">售價（NT$）</label><input id="product-price" name="price" type="number" min="1" max="10000" required></div>
+        <div class="field"><label for="product-category">分類</label><select id="product-category" name="category"><option>義式咖啡</option><option>手沖精品</option><option>特調飲品</option><option>輕食甜點</option></select></div>
+        <div class="field"><label for="product-badge">商品標籤</label><input id="product-badge" name="badge" maxlength="24"></div>
+        <div class="field field-wide"><label for="product-description">商品描述</label><input id="product-description" name="description" maxlength="120" required></div>
+        <div class="field field-wide"><label for="product-image">圖片網址</label><input id="product-image" name="image" type="url" required></div>
+      </div>
+      <div class="modal-actions"><button class="button-secondary" type="button" data-close-modal>取消</button><button class="button" type="submit">儲存商品</button></div>
+    </form></dialog><div class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

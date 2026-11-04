@@ -10,9 +10,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="./assets/js/app.js" defer></script>
+    <script type="module" src="./assets/js/home.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="主要導覽">
+        <a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a>
+        <div class="nav-links"><a href="./index.html" aria-current="page">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+        <div class="nav-actions"><a href="./cart.html" aria-label="購物袋，0 件">購物袋 <span class="cart-count" data-cart-count aria-live="polite">0</span></a><a class="nav-cta" href="./menu.html">開始點餐 ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="開啟導覽選單">選單</button></div>
+      </nav>
+      <div class="mobile-nav wrap"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./cart.html">購物袋（<span data-cart-count>0</span>）</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap"><div class="hero-content">
+          <div class="eyebrow">A slower morning, a better coffee</div>
+          <h1 id="hero-title">把日常，<br><span>沖得更好。</span></h1>
+          <p class="hero-copy">從產地到杯中，細心挑選每一顆咖啡豆。留一點時間給自己，讓今天從一杯好咖啡開始。</p>
+          <div class="hero-buttons"><a class="button" href="./menu.html">探索咖啡菜單 ↗</a><a class="button-secondary" href="#story">認識晨焙</a></div>
+          <div class="hero-stats"><div><strong>01</strong>嚴選單一產區</div><div><strong>02</strong>每日新鮮烘焙</div><div><strong>03</strong>手工細緻沖煮</div></div>
+        </div></div>
+        <div class="hero-note">GOOD COFFEE, GOOD DAY</div>
+      </section>
+      <div class="ticker">每日新鮮烘焙 <span>✳</span> 為你的日常，留一杯咖啡的時間 <span>✳</span> 單筆滿 NT$ 500 享免運</div>
+      <section class="section wrap" aria-labelledby="signature-title">
+        <div class="section-heading"><div><div class="eyebrow">Our signature</div><h2 id="signature-title">本週人氣推薦</h2></div><p>經典風味，為每一種日常時刻準備。<br>選一杯喜歡的，現在就開始。</p></div>
+        <div class="coffee-grid" id="featured-products" data-product-list aria-live="polite"></div>
+        <div class="hero-buttons"><a class="button-secondary" href="./menu.html">瀏覽完整菜單 →</a></div>
+      </section>
+      <section class="story" id="story"><div class="story-layout">
+        <div class="story-photo" role="img" aria-label="咖啡師專注準備手沖咖啡"></div>
+        <div class="story-copy"><div class="eyebrow">From farm to cup</div><h2>好咖啡，<br>從用心開始。</h2><p>我們相信，咖啡不只是提神，更是日常裡的一段留白。與世界各地的小農合作，尊重每一片土地的風味，再以恰好的烘焙，呈現咖啡豆最真實的樣子。</p><a href="./menu.html">選一杯喜歡的咖啡 →</a></div>
+      </div></section>
+      <section class="visit"><div class="visit-inner wrap"><div><div class="eyebrow">Your neighborhood coffee</div><h2>今天，想在哪裡喝杯咖啡？</h2><p>台北市大安區溫州街 18 號　｜　每日 08:00 – 18:00</p></div><a class="button" href="./menu.html">選擇咖啡並點餐 ↗</a></div></section>
+    </main>
+    <section class="page-body wrap" id="page-error" hidden><div class="empty-state" role="alert"><h2>目前無法載入商品資料</h2><p>請確認網站是透過本機伺服器開啟，並重新載入頁面。</p><button class="button" type="button" data-reload-page>重新載入</button></div></section>
+    <footer class="site-footer"><div class="footer-inner wrap"><a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a><div>© 晨焙 <span lang="en">Coffee Atelier</span>　｜　前端展示版</div><div class="footer-links"><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div></div></footer>
+    <dialog class="modal" aria-labelledby="modal-title"><form method="dialog" class="modal-content" id="customize-form">
+      <div class="modal-header"><div><div class="eyebrow" data-product-category></div><h2 id="modal-title"></h2><p data-product-description></p></div><button class="modal-close" type="button" data-close-modal aria-label="關閉">×</button></div>
+      <div class="form-grid">
+        <div class="field" data-option="size"><label for="drink-size">容量</label><select id="drink-size" name="size"><option value="中杯">中杯（預設）</option><option value="大杯">大杯（+ NT$ 20）</option></select></div>
+        <div class="field" data-option="temperature"><label for="drink-temp">冷熱</label><select id="drink-temp" name="temperature"><option value="熱飲">熱飲</option><option value="少冰">少冰</option><option value="正常冰">正常冰</option></select></div>
+        <div class="field" data-option="sugar"><label for="drink-sugar">甜度</label><select id="drink-sugar" name="sugar"><option>無糖</option><option selected>半糖</option><option>正常糖</option></select></div>
+        <div class="field field-wide" data-option="oat"><label><input type="checkbox" name="extraOat"> 更換燕麥奶（+ NT$ 15）</label></div>
+      </div>
+      <div class="field" style="margin-top:16px"><label for="quantity">數量</label><input id="quantity" name="quantity" type="number" min="1" max="20" value="1" required></div>
+      <div class="modal-actions"><button class="button-secondary" type="button" data-close-modal>取消</button><button class="button" type="submit">加入購物袋</button></div>
+    </form></dialog>
+    <div class="toast" role="status" aria-live="polite" hidden></div>
   </body>
 </html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#211812">
+    <meta name="description" content="查看晨焙 Coffee Atelier 購物袋中的品項與金額。">
+    <title>購物袋｜晨焙 Coffee Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/js/cart.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="主要導覽">
+        <a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a>
+        <div class="nav-links"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+        <div class="nav-actions"><a href="./cart.html" aria-label="購物袋，0 件" aria-current="page">購物袋 <span class="cart-count" data-cart-count aria-live="polite">0</span></a><a class="nav-cta" href="./menu.html">開始點餐 ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="開啟導覽選單">選單</button></div>
+      </nav>
+      <div class="mobile-nav wrap"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./cart.html" aria-current="page">購物袋（<span data-cart-count>0</span>）</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+    </header>
+    <main class="page-main">
+      <section class="page-hero"><div class="wrap page-heading"><div><div class="eyebrow">Your coffee selection</div><h1>購物袋</h1></div><p>確認品項與客製內容，接著填寫取餐資料。</p></div></section>
+      <section class="page-body wrap" id="cart-empty" hidden><div class="empty-state"><h2>購物袋還是空的</h2><p>挑一杯喜歡的咖啡，開始你的美好日常。</p><a class="button" href="./menu.html">前往咖啡菜單 →</a></div></section>
+      <section class="page-body wrap two-column" id="cart-content" hidden>
+        <section class="panel"><h2>已選品項（<span id="cart-item-count">0</span>）</h2><div class="cart-list" id="cart-items"></div><a class="button-secondary button-small" href="./menu.html">繼續選購</a></section>
+        <section class="panel" aria-labelledby="summary-title"><h2 id="summary-title">訂單摘要</h2><div id="cart-summary"></div><a class="button full-width" href="./checkout.html">前往結帳 →</a></section>
+      </section>
+    </main>
+    <section class="page-body wrap" id="page-error" hidden><div class="empty-state" role="alert"><h2>目前無法載入商品資料</h2><p>請確認網站是透過本機伺服器開啟，並重新載入頁面。</p><button class="button" type="button" data-reload-page>重新載入</button></div></section>
+    <footer class="site-footer"><div class="footer-inner wrap"><a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a><div>© 晨焙 <span lang="en">Coffee Atelier</span>　｜　前端展示版</div><div class="footer-links"><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div></div></footer>
+    <dialog class="modal" aria-labelledby="modal-title"><form method="dialog" class="modal-content" id="customize-form">
+      <div class="modal-header"><div><div class="eyebrow" data-product-category></div><h2 id="modal-title"></h2><p data-product-description></p></div><button class="modal-close" type="button" data-close-modal aria-label="關閉">×</button></div>
+      <div class="form-grid"><div class="field" data-option="size"><label for="drink-size">容量</label><select id="drink-size" name="size"><option value="中杯">中杯（預設）</option><option value="大杯">大杯（+ NT$ 20）</option></select></div><div class="field" data-option="temperature"><label for="drink-temp">冷熱</label><select id="drink-temp" name="temperature"><option value="熱飲">熱飲</option><option value="少冰">少冰</option><option value="正常冰">正常冰</option></select></div><div class="field" data-option="sugar"><label for="drink-sugar">甜度</label><select id="drink-sugar" name="sugar"><option>無糖</option><option selected>半糖</option><option>正常糖</option></select></div><div class="field field-wide" data-option="oat"><label><input type="checkbox" name="extraOat"> 更換燕麥奶（+ NT$ 15）</label></div></div>
+      <div class="field" style="margin-top:16px"><label for="quantity">數量</label><input id="quantity" name="quantity" type="number" min="1" max="20" value="1" required></div><div class="modal-actions"><button class="button-secondary" type="button" data-close-modal>取消</button><button class="button" type="submit">加入購物袋</button></div>
+    </form></dialog><div class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

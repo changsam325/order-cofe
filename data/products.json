@@ -1,0 +1,90 @@
+[
+  {
+    "id": "oat-latte",
+    "name": "晨光燕麥拿鐵",
+    "category": "義式咖啡",
+    "description": "濃縮咖啡・燕麥奶・野花蜂蜜",
+    "price": 150,
+    "badge": "店長推薦",
+    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["hot", "iced", "size", "sugar", "oat"]
+  },
+  {
+    "id": "ethiopia",
+    "name": "衣索比亞・日曬",
+    "category": "手沖精品",
+    "description": "莓果香氣・柑橘尾韻・中淺焙",
+    "price": 180,
+    "badge": "單品手沖",
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["hot", "iced", "size"]
+  },
+  {
+    "id": "black-sugar-coldbrew",
+    "name": "黑糖海鹽冷萃",
+    "category": "特調飲品",
+    "description": "低溫萃取・黑糖香氣・綿密奶蓋",
+    "price": 160,
+    "badge": "季節限定",
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["iced", "size", "sugar"]
+  },
+  {
+    "id": "flat-white",
+    "name": "經典馥列白",
+    "category": "義式咖啡",
+    "description": "雙份濃縮・絲絨奶泡・平衡醇厚",
+    "price": 140,
+    "badge": "經典款",
+    "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["hot", "iced", "size", "sugar", "oat"]
+  },
+  {
+    "id": "geisha",
+    "name": "巴拿馬・藝伎",
+    "category": "手沖精品",
+    "description": "白花香氣・蜜桃甜感・淺焙",
+    "price": 240,
+    "badge": "限量批次",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["hot", "iced", "size"]
+  },
+  {
+    "id": "citrus-espresso",
+    "name": "橙花氣泡美式",
+    "category": "特調飲品",
+    "description": "柑橘果香・清爽氣泡・雙份濃縮",
+    "price": 155,
+    "badge": "清爽推薦",
+    "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": ["iced", "size", "sugar"]
+  },
+  {
+    "id": "canelé",
+    "name": "香草可麗露",
+    "category": "輕食甜點",
+    "description": "外層焦脆・內裡柔軟・每日新鮮出爐",
+    "price": 75,
+    "badge": "每日現烤",
+    "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": []
+  },
+  {
+    "id": "lemon-cake",
+    "name": "檸檬奶油磅蛋糕",
+    "category": "輕食甜點",
+    "description": "新鮮檸檬・發酵奶油・微酸清甜",
+    "price": 95,
+    "badge": "人氣甜點",
+    "image": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=800&q=80",
+    "available": true,
+    "options": []
+  }
+]

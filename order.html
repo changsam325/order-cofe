@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#211812">
+    <meta name="description" content="查詢晨焙 Coffee Atelier 訂單明細與製作進度。">
+    <title>訂單查詢｜晨焙 Coffee Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/js/order.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="主要導覽">
+        <a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a>
+        <div class="nav-links"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./order.html" aria-current="page">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+        <div class="nav-actions"><a href="./cart.html" aria-label="購物袋，0 件">購物袋 <span class="cart-count" data-cart-count aria-live="polite">0</span></a><a class="nav-cta" href="./menu.html">開始點餐 ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="開啟導覽選單">選單</button></div>
+      </nav>
+      <div class="mobile-nav wrap"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./cart.html">購物袋（<span data-cart-count>0</span>）</a><a href="./order.html" aria-current="page">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+    </header>
+    <main class="page-main">
+      <section class="page-hero"><div class="wrap page-heading"><div><div class="eyebrow">Order lookup</div><h1>訂單查詢</h1></div><p>輸入訂單編號，查看訂單內容與目前進度。</p></div></section>
+      <section class="page-body wrap" id="order-lookup">
+        <form class="panel order-lookup" id="order-lookup-form">
+          <div class="field"><label for="order-id-input">訂單編號</label><input id="order-id-input" name="id" required autocomplete="off"></div>
+          <button class="button" type="submit">查詢訂單 →</button>
+        </form>
+      </section>
+      <section class="page-body wrap" id="order-result" hidden>
+        <article class="order-card" id="order-card" hidden>
+          <div class="muted">訂單編號</div><div class="order-id" id="order-id"></div>
+          <div class="notice success" id="order-status" role="status"></div>
+          <div class="progress-track" aria-label="訂單製作進度">
+            <div class="progress-step" data-order-stage="received"><span>已收單</span></div><div class="progress-step" data-order-stage="preparing"><span>製作中</span></div><div class="progress-step" data-order-stage="ready"><span>請取餐</span></div><div class="progress-step" data-order-stage="completed"><span>已完成</span></div>
+          </div>
+          <div class="two-column">
+            <section><h2>訂單明細</h2><div id="order-items"></div><div class="summary-row"><span>取餐方式</span><span id="order-fulfillment"></span></div><div class="summary-row" id="order-address-row" hidden><span>外送地址</span><span id="order-address"></span></div><div class="summary-row total"><span>訂單合計</span><span id="order-total"></span></div></section>
+            <section><h2>聯絡資料</h2><p id="order-customer"></p><p id="order-phone"></p><p class="muted">付款方式：現場付款</p><p id="order-note" hidden></p></section>
+          </div>
+          <div class="hero-buttons"><a class="button-secondary" href="./menu.html">繼續點餐</a><a href="./admin.html">管理端查看訂單 →</a></div>
+        </article>
+        <div class="empty-state" id="order-not-found" role="status" hidden><h2>找不到這筆訂單</h2><p>訂單可能不在此瀏覽器中，或編號有誤。</p><a class="button" href="./menu.html">返回菜單</a></div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-inner wrap"><a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a><div>© 晨焙 <span lang="en">Coffee Atelier</span>　｜　前端展示版</div><div class="footer-links"><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div></div></footer>
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

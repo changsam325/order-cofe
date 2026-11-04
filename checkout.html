@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#211812">
+    <meta name="description" content="填寫晨焙 Coffee Atelier 訂單的取餐與聯絡資料。">
+    <title>訂單結帳｜晨焙 Coffee Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/js/checkout.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="主要導覽">
+        <a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a>
+        <div class="nav-links"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+        <div class="nav-actions"><a href="./cart.html" aria-label="購物袋，0 件">購物袋 <span class="cart-count" data-cart-count aria-live="polite">0</span></a><a class="nav-cta" href="./menu.html">開始點餐 ↗</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="開啟導覽選單">選單</button></div>
+      </nav>
+      <div class="mobile-nav wrap"><a href="./index.html">品牌首頁</a><a href="./menu.html">咖啡菜單</a><a href="./cart.html">購物袋（<span data-cart-count>0</span>）</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div>
+    </header>
+    <main class="page-main">
+      <section class="page-hero"><div class="wrap page-heading"><div><div class="eyebrow">Almost there</div><h1>訂單結帳</h1></div><p>填寫聯絡與取餐資料，確認後即可送出訂單。</p></div></section>
+      <section class="page-body wrap" id="checkout-empty" hidden><div class="empty-state"><h2>目前沒有待結帳的商品</h2><a class="button" href="./menu.html">前往咖啡菜單 →</a></div></section>
+      <section class="page-body wrap two-column" id="checkout-content">
+        <form class="panel" id="checkout-form">
+          <h2>取餐與聯絡資料</h2>
+          <div class="form-grid">
+            <div class="field field-wide"><span class="field-label">取餐方式</span><div class="choice-list">
+              <label class="choice"><input type="radio" name="fulfillment" value="pickup" checked><span><strong>門市自取</strong><small>台北市大安區溫州街 18 號</small></span></label>
+              <label class="choice"><input type="radio" name="fulfillment" value="dinein"><span><strong>內用</strong><small>請提供門市桌號</small></span></label>
+              <label class="choice"><input type="radio" name="fulfillment" value="delivery"><span><strong>外送</strong><small>訂單滿 NT$ 500 免運，服務範圍依門市為準</small></span></label>
+            </div></div>
+            <div class="field"><label for="customer-name">姓名</label><input id="customer-name" name="customerName" autocomplete="name" required maxlength="60"></div>
+            <div class="field"><label for="customer-phone">聯絡電話</label><input id="customer-phone" name="phone" type="tel" autocomplete="tel" pattern="[0-9]{8,15}" title="請輸入 8 至 15 位數字電話" required></div>
+            <div class="field field-wide conditional-field" data-for="dinein" hidden><label for="table-number">桌號</label><input id="table-number" name="tableNumber" maxlength="10"></div>
+            <div class="field field-wide conditional-field" data-for="delivery" hidden><label for="delivery-address">外送地址</label><input id="delivery-address" name="address" autocomplete="street-address" maxlength="180"></div>
+            <div class="field field-wide"><label for="order-note">備註（選填）</label><textarea id="order-note" name="note" maxlength="240" placeholder="例如：少餐具、到店前電話聯絡"></textarea></div>
+          </div>
+          <h2 style="margin-top:24px">付款方式</h2>
+          <div class="choice-list">
+            <label class="choice"><input type="radio" name="payment" value="cash" checked><span><strong>現場付款</strong><small>取餐時於門市付款；此為前端展示流程</small></span></label>
+            <label class="choice"><input type="radio" name="payment" value="card" disabled><span><strong>信用卡</strong><small>尚未串接付款服務</small></span></label>
+            <label class="choice"><input type="radio" name="payment" value="linepay" disabled><span><strong>LINE Pay</strong><small>尚未串接付款服務</small></span></label>
+          </div>
+          <div class="notice">展示版本：訂單僅儲存在此瀏覽器，不會傳送到門市，也不會進行線上付款。</div>
+          <button class="button full-width" type="submit">確認並送出訂單 →</button>
+        </form>
+        <section class="panel" aria-labelledby="checkout-summary-title"><h2 id="checkout-summary-title">本次訂購</h2><div id="checkout-items"></div>
+          <div class="checkout-summary">
+            <div class="summary-row"><span>商品小計</span><span id="checkout-subtotal"></span></div>
+            <div class="summary-row"><span>外送費</span><span id="checkout-shipping">NT$ 0</span></div>
+            <p class="field-hint" id="delivery-hint" hidden></p>
+            <div class="summary-row total"><span>合計</span><span id="checkout-total"></span></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <section class="page-body wrap" id="page-error" hidden><div class="empty-state" role="alert"><h2>目前無法載入商品資料</h2><p>請確認網站是透過本機伺服器開啟，並重新載入頁面。</p><button class="button" type="button" data-reload-page>重新載入</button></div></section>
+    <footer class="site-footer"><div class="footer-inner wrap"><a class="brand" href="./index.html" aria-label="晨焙首頁"><span class="brand-mark" aria-hidden="true">晨</span><span>晨焙 <small lang="en">COFFEE ATELIER</small></span></a><div>© 晨焙 <span lang="en">Coffee Atelier</span>　｜　前端展示版</div><div class="footer-links"><a href="./menu.html">咖啡菜單</a><a href="./order.html">訂單查詢</a><a href="./admin.html">店家管理</a></div></div></footer>
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>
