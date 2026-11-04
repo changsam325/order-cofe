@@ -172,12 +172,16 @@ function homePage() {
     </main>`;
 }
 
-function menuPage() {
-  const filtered = state.products.filter((product) => {
+function filteredMenuProducts() {
+  return state.products.filter((product) => {
     const categoryMatches = state.category === "全部" || product.category === state.category;
     const searchMatches = `${product.name} ${product.description} ${product.category}`.toLowerCase().includes(state.search.toLowerCase());
     return product.available && categoryMatches && searchMatches;
   });
+}
+
+function menuPage() {
+  const filtered = filteredMenuProducts();
   return `
     <main class="page-main">
       <section class="page-hero"><div class="wrap page-heading"><div><div class="eyebrow">A cup for every moment</div><h1>咖啡菜單</h1></div><p>嚴選產地、每日新鮮製作。挑選喜歡的風味，客製專屬於你的日常一杯。</p></div></section>
@@ -186,8 +190,8 @@ function menuPage() {
           <div class="category-list" aria-label="商品分類">${categories.map((category) => `<button class="chip ${state.category === category ? "is-active" : ""}" type="button" data-category="${category}" aria-pressed="${state.category === category}">${category}</button>`).join("")}</div>
           <label class="sr-only" for="menu-search">搜尋菜單</label><input id="menu-search" class="search-input" type="search" placeholder="搜尋咖啡、風味…" value="${escapeHtml(state.search)}">
         </div>
-        <p class="muted" aria-live="polite">找到 ${filtered.length} 款商品</p>
-        <div class="coffee-grid">${filtered.length ? filtered.map(productCard).join("") : `<div class="empty-state" style="grid-column:1/-1"><h2>找不到符合的商品</h2><p>換個分類或關鍵字再試試看。</p></div>`}</div>
+        <p id="menu-result-count" class="muted" aria-live="polite">找到 ${filtered.length} 款商品</p>
+        <div id="menu-products" class="coffee-grid">${filtered.length ? filtered.map(productCard).join("") : `<div class="empty-state" style="grid-column:1/-1"><h2>找不到符合的商品</h2><p>換個分類或關鍵字再試試看。</p></div>`}</div>
       </section>
     </main>`;
 }
@@ -346,6 +350,17 @@ function pageContent(path) {
 
 function render() {
   document.querySelector("#app").innerHTML = `${header()}${pageContent(routePath())}${footer()}`;
+}
+
+function renderMenuResults() {
+  const results = document.querySelector("#menu-products");
+  const resultCount = document.querySelector("#menu-result-count");
+  if (!results || !resultCount) return;
+  const filtered = filteredMenuProducts();
+  resultCount.textContent = `找到 ${filtered.length} 款商品`;
+  results.innerHTML = filtered.length
+    ? filtered.map(productCard).join("")
+    : `<div class="empty-state" style="grid-column:1/-1"><h2>找不到符合的商品</h2><p>換個分類或關鍵字再試試看。</p></div>`;
 }
 
 function optionFields(product) {
@@ -553,11 +568,12 @@ document.addEventListener("click", handleClick);
 document.addEventListener("input", (event) => {
   if (event.target.id !== "menu-search") return;
   state.search = event.target.value;
-  const selectionStart = event.target.selectionStart;
-  render();
-  const search = document.querySelector("#menu-search");
-  search.focus();
-  search.setSelectionRange(selectionStart, selectionStart);
+  if (!event.isComposing) renderMenuResults();
+});
+document.addEventListener("compositionend", (event) => {
+  if (event.target.id !== "menu-search") return;
+  state.search = event.target.value;
+  renderMenuResults();
 });
 document.addEventListener("change", (event) => {
   if (event.target.name === "fulfillment") updateCheckoutFields();
